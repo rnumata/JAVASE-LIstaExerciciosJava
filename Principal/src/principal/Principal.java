@@ -6,7 +6,7 @@
 package principal;
 
 /**
- *
+ * Classe para execução do sistema
  * @author regisnumata
  */
 public class Principal {
@@ -16,41 +16,72 @@ public class Principal {
      */
     public static void main(String[] args) {
         
-        // Lista 01 - Ex 01
-        System.out.println("A ProgressÃ£o aritmÃ©tica Ã©:  "+ Exercicios.calcularPA(10, 7, 3));
-        
-       
-        // Lista 01 - Ex 02
-        System.out.println("A distÃ¢ncia Ã© de: " + Exercicios.calcularDistancia(0, 5, 10, 20));
-        
-        
-        // Lista 01 - Ex 03
-        System.out.println("A Media aritmÃ©tica Ã©: " + Exercicios.calcularMediaAritmetica(10.0, 5.5, 8.0));
+    	// Lista 01 - Ex 02
+    	//calcularDistancia();
+    	    	        
+        //Array com opcoes menu
+        String[] opcoes = {"Calcular Distancia", "Calcular Media Ponderada"};
         
         
-        // Lista 01 - Ex 04
-        System.out.println("A Media Ponderada Ã©: " + Exercicios.calcularMediaPonderada(10.0, 5.5, 8.0, 5.0, 3.0, 2.0));
+        boolean continuar = true;
+        do {
+        	
+        	int opcao = Console.mostrarMenu(opcoes, "Lista");
+            System.out.println("Opção:" + opcao);
+            
+            switch (opcao) {
+            case 1:
+            	calcularDistancia();
+            	break;
+            case 2:
+            	calcularMediaPonderada ();
+            	break;
+            case -1:
+            	System.out.println("Fim de execução");
+            	continuar = false;
+            	break;
+            }
+            
+            
+        } while(continuar);
         
         
-        // Lista 01 - Ex 05
-        System.out.println("A Media Harmonica Ã©: " + Exercicios.calcularMediaHarmonica(10.0, 5.5, 8.0));
         
         
-        // Lista 01 - Ex 06
-        System.out.println("A conversÃ£o de Celsius para Farenheit Ã©: " + Exercicios.converterTemp(30));
         
-      
-        // Lista 01 - Ex 07
-        System.out.println("O Volume do cilindro Ã©: " + Exercicios.calcularVolume(10, 15));
-        
-        
-        // Lista 01 - Ex 08
-        System.out.println("O Consumo da viagem foi de: " + Exercicios.calcularConsumo(1.0, 12.0) + " litro");
-        
-        
-        // Lista 01 - Ex 09
-        System.out.println("O Valor com acrescimo Ã©: " + Exercicios.calcularMontate(100.0, 15.0));
-        
-    }
+    } // --- Fim Main ---
     
-}
+             
+    	// Lista 01 - Ex 02
+    	/**
+    	 * Operação de tela para cálculo de distância entre dois pontos 
+    	 */
+    	public static void calcularDistancia () {
+    		int x1 = Console.recuperaInteiro("Informe x1: ");
+    		int x2 = Console.recuperaInteiro("Informe x2: ");
+    		int y1 = Console.recuperaInteiro("Informe y1: ");
+    		int y2 = Console.recuperaInteiro("Informe y2: ");
+    		double distancia = Exercicios.calcularDistancia(x1, y1, x2, y2);
+    		System.out.println("A distancia é -> " + distancia);
+    	}
+    	
+    	
+    	// Lista 01 - Ex 04
+    	/**
+    	 * Operação de tela para cálculo da media ponderada
+    	 */
+    	public static void calcularMediaPonderada () {
+    		double np1 = Console.recuperaInteiro("Informe np1: ");
+    		double np2 = Console.recuperaInteiro("Informe np2: ");
+    		double np3 = Console.recuperaInteiro("Informe np3: ");
+    		double pp1 = Console.recuperaInteiro("Informe pp1: ");
+    		double pp2 = Console.recuperaInteiro("Informe pp2: ");
+    		double pp3 = Console.recuperaInteiro("Informe pp3: ");
+    		double ponderada = Exercicios.calcularMediaPonderada(np1, np2, np3, pp1, pp2, pp3);
+    		System.out.println("A Media Ponderada é -> " + ponderada);
+    	}
+    	
+    
+    
+    
+} // ------- Fim Classe ---------

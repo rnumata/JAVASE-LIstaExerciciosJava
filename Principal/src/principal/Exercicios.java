@@ -34,15 +34,15 @@ public class Exercicios {
     int x1, y1, x2, y2;
     /**
      * Método que calcula a distância entre dois pontos
-     * @param x1 parametro 1
-     * @param y1 parametro 2
-     * @param x2 parametro 3
-     * @param y2 parametro 4
+     * @param x1 coordenada x no ponto 1
+     * @param y1 coordenada y no ponto 1
+     * @param x2 coordenada x no ponto 2
+     * @param y2 coordenada y no ponto 2
      * @return a raiz quadrada da soma dos quadrados da diferença
      */
     public static double calcularDistancia (int x1, int y1, int x2, int y2){
-        double dist = Math.sqrt ( Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
-        return dist;
+        return Math.sqrt ( Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+   
     }
     
     
