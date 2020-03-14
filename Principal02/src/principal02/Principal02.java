@@ -19,14 +19,14 @@ public class Principal02 {
         calcularPesoIdeal();
         calcularBaskara();
         calcularPreco();
-        
+        calcularOperacao();
         
         
         
     } // -- Fim main --
     
     
-    // Declaraçao dos metodos para operacao de tela
+	// Declaraçao dos metodos para operacao de tela
     
     
     // Lista 02 - Ex 01
@@ -34,10 +34,10 @@ public class Principal02 {
      * Operacao de tela para calcular peso ideal
      */
     public static void calcularPesoIdeal(){
-        char sexo = 'F';
-        double altura = 1.7;
+        String sexo = "F";
+        double altura = 1.8;
         double pesoIdeal = Lista02.calcularPesoIdeal(sexo, altura);
-        System.out.println("O Peso ideal para o sexo " + sexo + " é: " + altura);
+        System.out.println("O Peso ideal e: " + pesoIdeal);
     }
 
     
@@ -49,20 +49,34 @@ public class Principal02 {
         double a = 1.0;
         double b = 12.0;
         double c = -13.0;
-        double baskara = Lista02.calcularBaskara(a, b, c);
-        System.out.println("A Raiz da equação e: " + baskara);
+        double [] baskara = Lista02.calcularBaskara(a, b, c);
+        System.out.println("A Raiz da equação e: " + baskara [0]);
     }
       
     
     // Lista 02 - Ex 03
-    
+    /**
+     * Operacao de tela para calcular preco
+     */
     public static void calcularPreco(){
         int condicao = 4;
-        double preco = 10.0;
+        double preco = 100.0;
         double precoFinal = Lista02.calcularPreco(condicao, preco);
         System.out.println("O Valor final é de R$ " + precoFinal);
     }
     
+    
+    // Lista 02 - Ex 04
+    /**
+     * Operacao de tela para calcular operacao
+     */
+    public static void calcularOperacao() {
+    	int operacao = 1;
+    	double num1 = 10;
+    	double num2 = 10;
+    	double res = Lista02.calcularOperacao(operacao, num1, num2);
+    	System.out.println("A Operacao e: " + res);
+    }
     
     
     

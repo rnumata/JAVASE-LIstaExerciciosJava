@@ -25,8 +25,8 @@ public class Lista02 {
      * @param altura parâmetro altura da pessoa
      * @return um double com o peso ideal conforme genero
      */
-    public static double calcularPesoIdeal (char sexo, double altura){
-        if (sexo == 'F') {
+    public static double calcularPesoIdeal (String sexo, double altura){
+        if ( sexo.equals("F") ) {
             return (62.1 * altura) - 44.7;
         } else {
             return (72.7 * altura) - 58;
@@ -43,9 +43,32 @@ public class Lista02 {
      * @param c coeficiente constante
      * @return duas raizes reais e diferentes
      */
+    /*
     public static double calcularBaskara (double a, double b, double c){
         double delta = Math.pow(b, 2) - 4 * a * c;  
-        return (-b + (Math.sqrt(delta))) / (2 * a);
+        return (-b - (Math.sqrt(delta))) / (2 * a);
+    }*/
+    
+    public static double[] calcularBaskara (double a, double b, double c) {
+    	// Calculo de Delta
+    	double delta = Math.pow(b, 2) - 4 * a * c;
+    	
+    	// Verificando se nao existem raizes reais
+    	if (delta < 0) {
+    		double [] semraizesreais = {}; //retorna um array vazio {}
+    		return semraizesreais;
+    	}
+    	// Verificando se existe aoenas uma raiz real
+     	if (delta == 0) {
+     		double x1 = -b / 2 * a;
+     		double [] umaraizreal = {x1};
+     		return umaraizreal;
+    	}
+     	// Verificando se existem duas raizes reais
+       		double x1 = (-b + (Math.sqrt(delta))) / (2 * a);
+     		double x2 = (-b - (Math.sqrt(delta))) / (2 * a);
+     		double [] duasraizesreais = {x1, x2};
+     		return duasraizesreais;  	
     }
     
     
@@ -54,6 +77,7 @@ public class Lista02 {
     int condicao;
     
     public static double calcularPreco (int condicao, double preco){
+    	
         switch (condicao) {
             case 1:
                 preco = preco * 0.9;
@@ -73,27 +97,25 @@ public class Lista02 {
     
     
     // Lista 02 - Ex 04
-    double res;
-    int operacao;
     
-    public static double calcularOperacao (double num1, double num2, int operacao){
-        switch (operacao) {
-            case 1:
-                //res = num1 + num2;
-                break;
-            case 2:
-                //res = num1 - num2;
-                break;
-            case 3:
-                //res = num1 * num2;
-                break;
-            case 4:
-                //res = num1 / num2;
-                break;
-        }
-        return 0;
+    public static double calcularOperacao(int operacao, double num1, double num2) {
+    	double res = 0;
+    	switch(operacao) {
+    	case 1:
+    		res = num1 + num2;
+    		break;
+    	case 2:
+    		res = num1 - num2;
+    		break;
+    	case 3:
+    		res = num1 * num2;
+    		break;
+    	case 4:
+    		res = num1 / num2;
+    		break;
+    	}
+    	return res;
     }
-    
     
     
     
