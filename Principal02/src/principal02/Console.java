@@ -1,4 +1,4 @@
-package principal;
+package principal02;
 
 import java.util.Scanner;
 
