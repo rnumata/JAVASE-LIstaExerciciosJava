@@ -6,7 +6,7 @@
 package principal02;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Scanner;
 
         
 
@@ -20,6 +20,22 @@ import java.util.Arrays;
 
 public class Lista02 {
     
+    
+    // Metodo para mostrar o Menu principal e recolher a opcao digitada pelo usuario
+    
+    private static Scanner scanner = new Scanner(System.in);
+    
+    public static int opcaoMenu (String [] menuPrincipal){
+        for (int i = 0; i < menuPrincipal.length; i++) {
+            System.out.println(i+1 + "-" + menuPrincipal[i]);
+        }
+        scanner = new Scanner(System.in);
+        int opcao = scanner.nextInt();
+        return opcao;
+    }
+    
+    
+    // --- Inicio lista de exercicios --- //
     
     // Lista 02 - Ex 01
     /**
@@ -229,7 +245,7 @@ public class Lista02 {
         ArrayList fibo = new ArrayList();
         int atual = 0;
         int anterior = 0;
-         for (int i = 1 ; i < numero; i++) {
+         for (int i = 1 ; i <= numero; i++) {
              if (i == 1) {
                  atual = 1;
                  anterior = 0;
@@ -277,7 +293,11 @@ public class Lista02 {
     
     
     // Lista 02 - Ex 12
-    
+    /**
+     * Metodo que realiza uma sequencia crescente a partir do 1 repetidamente conforme a qtde escolhida pelo usuario. Ex: 3 a sequencia será 1  1 2  1 2 3
+     * @param numero qtde de vezes a se repetir a sequencia 
+     * @return um ArrayList com o resultado das sequencias
+     */
     public static ArrayList calcularSeq2 (int numero){
         ArrayList seq = new ArrayList();
         for (int i = 1; i <= numero; i++) {
@@ -287,6 +307,45 @@ public class Lista02 {
         }
         return seq;
     }
+    
+    
+    // Lista 02 - Ex 13
+    /**
+     * Metodo que recebe um array para o usuario escolher uma opcao. Soma ao respectivo contador se par ou impar. Caso a opcao seja 3 sairá do while e retornara ao main um array com os contadores
+     * @param menuExercicio13 array de opcoes definido no main
+     * @return um array int [] com o total dos contadores
+     */
+    public static int [] parOuImpar (String [] menuExercicio13) {
+        int contpar = 0;
+        int contimpar = 0;
+        boolean sair = true;
+        
+        while (sair) {        
+            
+            // for para percorrer o array e imprimir o menu
+            for (int i = 0; i < menuExercicio13.length; i++) {
+                System.out.println( i + 1 + "-" + menuExercicio13[i]);
+            }
+
+            // scanner para ler a opcao do usuario
+            scanner = new Scanner(System.in);
+            int opcao = scanner.nextInt();
+            
+            
+            // if para verificar se é par ou impar e adicionar ao contador. Caso 3 sairá do while
+            if (opcao == 3) {
+                sair = false;
+            } else if (opcao % 2 == 0) {
+                contpar ++;
+            } else {
+                contimpar ++;
+            }
+            
+        } // Fim while
+        
+        int [] res = {contpar, contimpar};  // popula o array com o total de par e impar
+        return res;
+    };
     
     
     

@@ -18,83 +18,113 @@ public class Principal02 {
     
     public static void main(String[] args) {
         
-        // variavel opcoes do tipo array de string
-        String [] opcoes = {
-            "Peso Ideal",
-            "Equacao 2o grau",
-            "Pagamento",
-            "Calculadora",
-            "Triangulo",
-            "Fatorial",
-            "Numeros perfeitos",
-            "Numeros Primos",
-            "Fibonacci",
-            "Conversao de bases",
-            "Sequencia 1",
-            "Sequencia 2",
-            "Par - Impar",
+        // Menu Principal
+        String [] menuPrincipal = {
+            " Exercicios 1 a 12 ",
+            " Exercicio 13",
+            " Sair"
         };
+       
+        int opcao = Lista02.opcaoMenu(menuPrincipal);
+        // Fim Menu Principal
         
-        boolean continuar = true;
-        
-        do {
-            System.out.println("\n");
-            int opcaoescolhida = Console.mostrarMenu(opcoes, "Lista de opcoes");
-            System.out.println("Opção ->" + opcaoescolhida);
+        // if do Menu Principal
+        if (opcao == 1) {
             
-            switch(opcaoescolhida){
-                case 1:
-                    calcularPesoIdeal();
-                    break;
-                case 2:
-                    calcularBaskara();
-                    break;
-                case 3:
-                    calcularPreco();
-                    break;
-                case 4:
-                    calcularOperacao();
-                    break;
-                case 5:
-                    calcularTriangulo();
-                    break;
-                case 6:
-                    calcularFatorial();
-                    break;
-                case 7:
-                    calcularNumPerfeito();
-                    break;
-                case 8:
-                    calcularNumPrimo();
-                    break;
-                case 9:
-                    calcularFibonacci();
-                    break;
-                case 10:
-                    calcularBase8();
-                    break;
-                case 11:
-                    calcularSeq1();
-                    break;
-                case 12:
-                    calcularSeq2();
-                    break;
-                case 13:
-                    //
-                    break;
-                case -1:
-                    System.out.println("Fim de execução");
-                    continuar = false;
-            }
-        } while (continuar);
+            // variavel opcoes do tipo array de string
+            String [] opcoes = {
+                "Peso Ideal",
+                "Equacao 2o grau",
+                "Pagamento",
+                "Calculadora",
+                "Triangulo",
+                "Fatorial",
+                "Numeros perfeitos",
+                "Numeros Primos",
+                "Fibonacci",
+                "Conversao de bases",
+                "Sequencia 1",
+                "Sequencia 2",
+                "Par - Impar",
+            };
+
+
+            boolean continuar = true;
+
+            do {
+                System.out.println("\n");
+                int opcaoescolhida = Console.mostrarMenu(opcoes, "Lista de opcoes");
+                System.out.println("Opção ->" + opcaoescolhida);
+
+                switch(opcaoescolhida){
+                    case 1:
+                        calcularPesoIdeal();
+                        break;
+                    case 2:
+                        calcularBaskara();
+                        break;
+                    case 3:
+                        calcularPreco();
+                        break;
+                    case 4:
+                        calcularOperacao();
+                        break;
+                    case 5:
+                        calcularTriangulo();
+                        break;
+                    case 6:
+                        calcularFatorial();
+                        break;
+                    case 7:
+                        calcularNumPerfeito();
+                        break;
+                    case 8:
+                        calcularNumPrimo();
+                        break;
+                    case 9:
+                        calcularFibonacci();
+                        break;
+                    case 10:
+                        calcularBase8();
+                        break;
+                    case 11:
+                        calcularSeq1();
+                        break;
+                    case 12:
+                        calcularSeq2();
+                        break;
+                    case 13:
+                        //
+                        break;
+                    case -1:
+                        System.out.println("Fim de execução");
+                        continuar = false;
+                }
+            } while (continuar);
+        
+        } else if (opcao == 2) {
+            
+            String [] menuExercicio13 = {
+                "Digitar um numero ímpar",
+                "Digitar um numero par",
+                "Sair"
+            };
+            
+            int [] list = Lista02.parOuImpar(menuExercicio13);
+            System.out.println("Total de Impar ->" + list[0]);
+            System.out.println("Total de Par ->" + list[1]);
+           
+        } else {
+            System.out.println("Fim de execuçao");
+            
+        } // Fim do if do Menu Principal
         
         
         
     } // -- Fim main --
     
     
-	// Declaraçao dos metodos para operacao de tela
-    
+    // Declaraçao dos metodos para operacao de tela
     
     // Lista 02 - Ex 01
     /**
@@ -178,7 +208,7 @@ public class Principal02 {
      */
     public static void calcularNumPerfeito() {
         int numero = Console.recuperaInteiro("Informar numero: ");
-        System.out.println("Num ->" + Lista02.calcularNumPerfeito(numero));
+        System.out.println("A Soma dos divisores e: " + Lista02.calcularNumPerfeito(numero));
     }
     
     
@@ -222,15 +252,20 @@ public class Principal02 {
     }
     
     
-    // LIsta 02 - Ex 12
+    // Lista 02 - Ex 12
     /**
      * Operacao de tela para mostrar uma sequencia crescente e repetidamente conforme sua qtde
      */
     public static void calcularSeq2() {
-        int numero = 5;
+        int numero = Console.recuperaInteiro("Informe o numero: ");
         System.out.println("A Sequencia eh: " + Lista02.calcularSeq2(numero));
     }
-   
+
+    
+    // Lista 02 - Ex 13
+    
+ 
+    
     
     
     
