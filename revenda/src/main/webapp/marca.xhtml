@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+	<h:head>
+		<title>Revenda</title>
+	</h:head>
+	
+	<h:body>
+	
+		<p:messages globalOnly="true" closable="true" style="width: 600px; margin: 0 auto">
+			<p:autoUpdate/>
+		</p:messages>
+		
+		<h:form style="width: 600px; margin: 10px auto">
+			<p:panel header="Cadastre a Marca dos carros">
+				<h:panelGrid columns="3" style="margin: 0 auto">
+					<p:outputLabel for="id_nome" value="Nome: "/>
+					<p:inputText id="id_nome" value="#{marca.nome}"/>
+					<p:message for="id_nome"/>
+					
+					<p:outputLabel for="id_desc" value="Descrição: "/>
+					<p:inputTextarea id="id_desc" value="#{marca.descricao}"/>
+					<p:message for="id_desc"/>
+					
+					<p:commandButton value="Salvar" action="#{marca.salvarMarcaBD()}"  update="@form"/>
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</h:body>
+</html>

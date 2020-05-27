@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+	<h:head>
+		<title>Revenda</title>
+	</h:head>
+	
+	<h:body>
+	
+		<p:messages globalOnly="true" closable="true" style="width: 600px; margin: 0 auto">
+			<p:autoUpdate/>
+		</p:messages>
+		
+		<h:form style="width: 600px; margin: 10px auto">
+			<p:panel header="Cadastre seu veículo">
+				<h:panelGrid columns="3">
+					
+					<p:outputLabel for="id_marca" value="Marca: "/>
+					<p:selectOneMenu id="id_marca" value="#{cadastro.marca}">
+						<f:selectItem itemLabel="--Selecione--" noSelectionOption="true" />
+						<f:selectItems/>
+					</p:selectOneMenu>
+					<p:message for="id_marca"/>
+					
+					<p:outputLabel for="id_modelo" value="Modelo: " style="margin: 30px 0px"/>
+					<p:inputText id="id_modelo" value="#{cadastro.modelo}"/>
+					<p:message for="id_modelo"/>
+						
+					<p:outputLabel for="id_placa" value="Placa: "/>
+					<p:inputMask id="id_placa" value="#{cadastro.placa}" mask="aaa-9999"/>
+					<p:message for="id_placa"/>
+					
+					<p:outputLabel for="id_cor" value="Cor: "/>
+					<p:colorPicker id="id_cor" value="#{cadastro.cor}"/>
+					<p:message for="id_cor"/>	
+					
+					<p:outputLabel for="id_anoModelo" value="Ano Modelo: "/>
+					<p:datePicker id="id_anoModelo" value="#{cadastro.anomodelo}"/>
+					<p:message for="id_anoModelo"/>
+					
+					<p:outputLabel for="id_anoFabricacao" value="Ano Fabricação: "/>
+					<p:datePicker id="id_anoFabricacao" value="#{cadastro.anofabricacao}"/>
+					<p:message for="id_anoFabricacao"/>	
+					
+					<p:outputLabel for="id_combustivel" value="Tipo Combustível: "/>
+					<p:selectOneMenu id="id_combustivel" value="#{cadastro.combustivel}">
+						<f:selectItem itemLabel="---Selecione---" noSelectionOption="true"/>
+						<f:selectItems/>
+					</p:selectOneMenu>
+					<br></br>
+					
+					<p:outputLabel for="id_fipe" value="FIPE (R$): "/>
+					<p:inputNumber id="id_fipe" value="#{cadastro.fipe}" decimalSeparator="," decimalPlaces="2" thousandSeparator="."/>
+					<p:message for="id_fipe"/>
+						
+					<p:commandButton value="Salvar" action="#{cadastro.mensagem()}" update="@form"/>
+					
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</h:body>
+</html>
