@@ -28,7 +28,7 @@
 	<!-- luna-amber, luna-blue, luna-green, luna-pink, nova-colored, nova-dark, nova-light -->
 	<context-param>
 		<param-name>primefaces.THEME</param-name>
-		<param-value>nova-dark</param-value>
+		<param-value>nova-colored</param-value>
 	</context-param>
 
 	<servlet>

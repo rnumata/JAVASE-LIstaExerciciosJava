@@ -9,26 +9,32 @@
 	<h:head>
 		<title>Revenda</title>
 	</h:head>
-	
 	<h:body>
-	
-		<p:messages globalOnly="true" closable="true" style="width: 600px; margin: 0 auto">
-			<p:autoUpdate/>
-		</p:messages>
-		
-		<h:form style="width: 600px; margin: 10px auto">
-			<p:panel header="Cadastre a Marca dos carros">
-				<h:panelGrid columns="3" style="margin: 0 auto">
+		<p:growl globalOnly="true">
+				<p:autoUpdate/>
+		</p:growl>
+		<h:form>
+			<p:panel header="Cadastre a Marca dos carros" style="width: 600px; margin: 0 auto">
+				<h:panelGrid columns="3">
 					<p:outputLabel for="id_nome" value="Nome: "/>
-					<p:inputText id="id_nome" value="#{marca.nome}"/>
+					<p:inputText id="id_nome" value="#{marcaBean.marca.nome}"/>
 					<p:message for="id_nome"/>
 					
-					<p:outputLabel for="id_desc" value="Descrição: "/>
-					<p:inputTextarea id="id_desc" value="#{marca.descricao}"/>
-					<p:message for="id_desc"/>
+					<p:outputLabel for="id_descricao" value="Descricao: "/>
+					<p:inputText id="id_descricao" value="#{marcaBean.marca.descricao}"/>
+					<p:message for="id_descricao"/>
 					
-					<p:commandButton value="Salvar" action="#{marca.salvarMarcaBD()}"  update="@form"/>
+					<p:outputLabel for="id_nacionalidade" value="Nacionalidade: "/>
+					<p:selectOneMenu id="id_nacionalidade" value="#{marcaBean.marca.nacionalidade}">
+						<f:selectItem itemLabel="--Selecione--" noSelectionOption="true" />
+						<f:selectItem itemLabel="EUA" itemValue="EUA"/>
+						<f:selectItem itemLabel="Italia" itemValue="Italia"/>
+						<f:selectItem itemLabel="Japao" itemValue="Japao"/>
+					</p:selectOneMenu>
 				</h:panelGrid>
+				<f:facet name="footer">
+					<p:commandButton value="Cadastrar" action="#{marcaBean.cadastrar()}" update="@form"/>
+				</f:facet>
 			</p:panel>
 		</h:form>
 	</h:body>

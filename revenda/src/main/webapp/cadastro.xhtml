@@ -12,53 +12,56 @@
 	
 	<h:body>
 	
-		<p:messages globalOnly="true" closable="true" style="width: 600px; margin: 0 auto">
-			<p:autoUpdate/>
-		</p:messages>
+		<h:form >
+			<p:messages globalOnly="true">
+				<p:autoUpdate/>
+			</p:messages>
 		
-		<h:form style="width: 600px; margin: 10px auto">
-			<p:panel header="Cadastre seu veículo">
+			<p:panel header="Cadastre seu veículo" style="width: 600px; margin: 10px auto">
 				<h:panelGrid columns="3">
-					
 					<p:outputLabel for="id_marca" value="Marca: "/>
-					<p:selectOneMenu id="id_marca" value="#{cadastro.marca}">
+					<p:selectOneMenu id="id_marca">
 						<f:selectItem itemLabel="--Selecione--" noSelectionOption="true" />
-						<f:selectItems/>
+						
 					</p:selectOneMenu>
 					<p:message for="id_marca"/>
 					
 					<p:outputLabel for="id_modelo" value="Modelo: " style="margin: 30px 0px"/>
-					<p:inputText id="id_modelo" value="#{cadastro.modelo}"/>
+					<p:inputText id="id_modelo" value="#{cadastroBean.cadastro.modelo}" />
 					<p:message for="id_modelo"/>
 						
 					<p:outputLabel for="id_placa" value="Placa: "/>
-					<p:inputMask id="id_placa" value="#{cadastro.placa}" mask="aaa-9999"/>
+					<p:inputMask id="id_placa" value="#{cadastroBean.cadastro.placa}" mask="aaa-9999"/>
 					<p:message for="id_placa"/>
 					
 					<p:outputLabel for="id_cor" value="Cor: "/>
-					<p:colorPicker id="id_cor" value="#{cadastro.cor}"/>
+					<p:colorPicker id="id_cor" value="#{cadastroBean.cadastro.cor}"/>
 					<p:message for="id_cor"/>	
 					
 					<p:outputLabel for="id_anoModelo" value="Ano Modelo: "/>
-					<p:datePicker id="id_anoModelo" value="#{cadastro.anomodelo}"/>
+					<p:datePicker id="id_anoModelo" value="#{cadastroBean.cadastro.anomodelo}" />
 					<p:message for="id_anoModelo"/>
 					
 					<p:outputLabel for="id_anoFabricacao" value="Ano Fabricação: "/>
-					<p:datePicker id="id_anoFabricacao" value="#{cadastro.anofabricacao}"/>
+					<p:datePicker id="id_anoFabricacao" value="#{cadastroBean.cadastro.anofabricacao}"/>
 					<p:message for="id_anoFabricacao"/>	
 					
 					<p:outputLabel for="id_combustivel" value="Tipo Combustível: "/>
-					<p:selectOneMenu id="id_combustivel" value="#{cadastro.combustivel}">
+					<p:selectOneMenu id="id_combustivel" value="#{cadastroBean.cadastro.combustivel}">
 						<f:selectItem itemLabel="---Selecione---" noSelectionOption="true"/>
-						<f:selectItems/>
+						<f:selectItem itemLabel="Gasolina" itemValue="Gasolina"/>
+						<f:selectItem itemLabel="Alcool" itemValue="Alcool"/>
+						<f:selectItem itemLabel="Diesel" itemValue="Diesel"/>
 					</p:selectOneMenu>
 					<br></br>
 					
 					<p:outputLabel for="id_fipe" value="FIPE (R$): "/>
-					<p:inputNumber id="id_fipe" value="#{cadastro.fipe}" decimalSeparator="," decimalPlaces="2" thousandSeparator="."/>
+					<p:inputNumber id="id_fipe" value="#{cadastroBean.cadastro.fipe}" decimalSeparator="," decimalPlaces="2" thousandSeparator="."/>
 					<p:message for="id_fipe"/>
-						
-					<p:commandButton value="Salvar" action="#{cadastro.mensagem()}" update="@form"/>
+					
+					<f:facet name="footer">	
+						<p:commandButton value="Salvar" action="#{cadastroBean.salvarCadastro()}" update="@form"/>
+					</f:facet>
 					
 				</h:panelGrid>
 			</p:panel>
