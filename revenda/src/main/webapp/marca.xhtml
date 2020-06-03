@@ -33,9 +33,45 @@
 					</p:selectOneMenu>
 				</h:panelGrid>
 				<f:facet name="footer">
-					<p:commandButton value="Cadastrar" action="#{marcaBean.cadastrar()}" update="@form"/>
+					<p:commandButton rendered="#{marcaBean.marca.id == null}" value="Cadastrar" action="#{marcaBean.cadastrar()}" update="@form"/>
+					<p:commandButton rendered="#{marcaBean.marca.id != null}" value="Atualizar" action="#{marcaBean.editarMarca()}" update="@form"/>
+					<p:commandButton rendered="#{marcaBean.marca.id == null}" value="Cancelar" action="#{marcaBean.cancelarEdicao()}" update="@form"/>
 				</f:facet>
 			</p:panel>
+			<br></br>
+			
+			<p:dataTable id="tbMarcas" var="marca" value="#{marcaBean.marcas}" emptyMessage="Sem Cadastro">
+				<p:column headerText="id">
+					<h:outputText value="#{marca.id}" />
+				</p:column>
+			
+				<p:column headerText="Nome">
+					<h:outputText value="#{marca.nome}" />
+				</p:column>
+			
+				<p:column headerText="Descrição">
+					<h:outputText value="#{marca.descricao}" />
+				</p:column>
+			
+				<p:column headerText="Nacionalidade">
+					<h:outputText value="#{marca.nacionalidade}" />
+				</p:column>
+				
+				<p:column headerText="Ações">
+					<p:commandButton value="Excluir" action="#{marcaBean.excluir(marca)}" update="tbMarcas" immediate="true">
+						<p:confirm header="Confirmação" message="Deseja excluir a marca #{marca.nome} ?" icon="pi pi-exclamation-triangle" />
+					</p:commandButton>
+					
+					<p:commandButton value="Editar" action="#{marcaBean.editar(marca)}" immediate="true" update="@form" resetValues="true"/>
+				</p:column>
+			</p:dataTable>
+			
 		</h:form>
+		
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        	<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+        	<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+    	</p:confirmDialog>
+		
 	</h:body>
 </html>
