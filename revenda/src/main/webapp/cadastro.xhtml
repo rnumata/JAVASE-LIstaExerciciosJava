@@ -13,18 +13,20 @@
 	<h:body>
 	
 		<h:form >
-			<p:messages globalOnly="true">
+			<p:messages globalOnly="true" closable="true">
 				<p:autoUpdate/>
 			</p:messages>
 		
 			<p:panel header="Cadastre seu veículo" style="width: 600px; margin: 10px auto">
 				<h:panelGrid columns="3">
+				
 					<p:outputLabel for="id_marca" value="Marca: "/>
-					<p:selectOneMenu id="id_marca">
-						<f:selectItem itemLabel="--Selecione--" noSelectionOption="true" />
-						
+					<p:selectOneMenu id="id_marca" value="#{cadastroBean.cadastro.marca}" converter="omnifaces.SelectItemsIndexConverter">
+						<f:selectItem noSelectionOption="true" itemLabel="---Selecione---"/>
+						<f:selectItems value="#{marcaBean.marcas}" var="m" itemLabel="#{m.nome}" itemValue="#{m}" />
 					</p:selectOneMenu>
 					<p:message for="id_marca"/>
+					
 					
 					<p:outputLabel for="id_modelo" value="Modelo: " style="margin: 30px 0px"/>
 					<p:inputText id="id_modelo" value="#{cadastroBean.cadastro.modelo}" />

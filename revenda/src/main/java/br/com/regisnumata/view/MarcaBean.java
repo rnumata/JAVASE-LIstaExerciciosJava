@@ -18,12 +18,12 @@ import java.util.List;
 public class MarcaBean implements Serializable {
 
 	private static final long serialVersionUID = 6520333234197281582L;
+	
 
 	private Marca marca;
 	
 	private List<Marca> marcas;
 	
-	@Inject
 	private ServicoMarca servicoMarca;
 	
 
@@ -34,6 +34,7 @@ public class MarcaBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		this.marca = new Marca();
+		this.servicoMarca = new ServicoMarca();
 		this.atualizarMarcas();
 	}
 	

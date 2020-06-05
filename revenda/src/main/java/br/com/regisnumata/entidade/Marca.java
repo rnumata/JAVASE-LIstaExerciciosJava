@@ -1,12 +1,15 @@
 package br.com.regisnumata.entidade;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -19,6 +22,7 @@ import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "TB_REV_MARCA")
+@NamedQuery(name = "marca.listar.todos", query = "FROM Marca m")
 public class Marca implements Serializable {
 	
 	private static final long serialVersionUID = -7487869629207239228L;
@@ -42,9 +46,23 @@ public class Marca implements Serializable {
 	@Column(name = "NAC_MAR")
 	private String nacionalidade;
 	
+	
+	//onetomany significa que uma Marca vai ter muitos veiculos
+	@OneToMany(mappedBy = "marca")
+	private List<Cadastro> cadastro;
+	
 
 	public Marca() {
 		
+	}
+	
+	
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	public String getNome() {
@@ -71,13 +89,17 @@ public class Marca implements Serializable {
 		this.nacionalidade = nacionalidade;
 	}
 	
-	public Long getId() {
-		return id;
+	
+	public List<Cadastro> getCadastro() {
+		return cadastro;
+	}
+
+	public void setCadastro(List<Cadastro> cadastro) {
+		this.cadastro = cadastro;
 	}
 	
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
+	
 	
 	@Override
 	public int hashCode() {
@@ -103,6 +125,8 @@ public class Marca implements Serializable {
 			return false;
 		return true;
 	}
+
+	
 
 	
 
