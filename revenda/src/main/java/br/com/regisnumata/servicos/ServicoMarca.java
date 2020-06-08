@@ -76,7 +76,6 @@ public class ServicoMarca {
 		}
 	}
 	
-	
 	/**
 	 * Edita uma marca selecionada
 	 * @param marca
@@ -97,28 +96,23 @@ public class ServicoMarca {
 		
 	}
 	
-	
 	/**
 	 * Lista todos os registros
 	 * Também envia a lista para o API com o @GET e @produces e MediaType javax.ws.rs e Application_Json String: MediaType
 	 * @return
 	 */
-	
 	@GET
 	@Produces(value = MediaType.APPLICATION_JSON)
-	
 	public List<Marca> listar(){
 		EntityManager em = JPAUtils.getInstance();
 		return em.createNamedQuery("marca.listar.todos", Marca.class).getResultList();
 	}
-	
 	
 	/**
 	 * Busca a marca por nome
 	 * @param nome
 	 * @return marca ou Null se não encontrar
 	 */
-	
 	public Marca buscarPorNome(String nome) {
 		EntityManager em = JPAUtils.getInstance();
 		Query query = em.createQuery("FROM Marca m WHERE m.nome = :p1").setParameter("p1", nome);

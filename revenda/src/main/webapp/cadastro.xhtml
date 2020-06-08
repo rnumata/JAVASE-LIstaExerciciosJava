@@ -11,7 +11,6 @@
 	</h:head>
 	
 	<h:body>
-	
 		<h:form >
 			<p:messages globalOnly="true" closable="true">
 				<p:autoUpdate/>
@@ -26,7 +25,6 @@
 						<f:selectItems value="#{marcaBean.marcas}" var="m" itemLabel="#{m.nome}" itemValue="#{m}" />
 					</p:selectOneMenu>
 					<p:message for="id_marca"/>
-					
 					
 					<p:outputLabel for="id_modelo" value="Modelo: " style="margin: 30px 0px"/>
 					<p:inputText id="id_modelo" value="#{cadastroBean.cadastro.modelo}" />

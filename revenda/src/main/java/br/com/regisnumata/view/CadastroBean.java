@@ -32,13 +32,11 @@ public class CadastroBean implements Serializable {
 		
 	}
 	
-
 	@PostConstruct
 	public void init() {
 		this.cadastro = new Cadastro();
 	}
 	
-
 	public void salvarCadastro() {
 		try {
 			this.servicoCadastro.salvarCadastro(cadastro);

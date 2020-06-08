@@ -1,7 +1,6 @@
 package br.com.regisnumata.servicos;
 
 
-
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -50,8 +49,6 @@ public class ServicoCadastro {
 	} // fim do metodo
 
 	
-	
-	
 	private Cadastro buscarPorPlaca(String placa) {
 		
 		EntityManager em = JPAUtils.getInstance();
@@ -64,8 +61,4 @@ public class ServicoCadastro {
 			return null;
 		}
 	} // fim do metodo
-	
-	
-	
-	
 }// fim classe

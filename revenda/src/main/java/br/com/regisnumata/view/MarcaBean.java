@@ -24,6 +24,7 @@ public class MarcaBean implements Serializable {
 	
 	private List<Marca> marcas;
 	
+	@Inject
 	private ServicoMarca servicoMarca;
 	
 
@@ -34,7 +35,6 @@ public class MarcaBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		this.marca = new Marca();
-		this.servicoMarca = new ServicoMarca();
 		this.atualizarMarcas();
 	}
 	

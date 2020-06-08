@@ -35,7 +35,7 @@
 				<f:facet name="footer">
 					<p:commandButton rendered="#{marcaBean.marca.id == null}" value="Cadastrar" action="#{marcaBean.cadastrar()}" update="@form"/>
 					<p:commandButton rendered="#{marcaBean.marca.id != null}" value="Atualizar" action="#{marcaBean.editarMarca()}" update="@form"/>
-					<p:commandButton rendered="#{marcaBean.marca.id == null}" value="Cancelar" action="#{marcaBean.cancelarEdicao()}" update="@form"/>
+					<p:commandButton rendered="#{marcaBean.marca.id != null}" value="Cancelar" action="#{marcaBean.cancelarEdicao()}" update="@form"/>
 				</f:facet>
 			</p:panel>
 			<br></br>

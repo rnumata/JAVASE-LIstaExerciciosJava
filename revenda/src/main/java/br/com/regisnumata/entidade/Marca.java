@@ -27,7 +27,6 @@ public class Marca implements Serializable {
 	
 	private static final long serialVersionUID = -7487869629207239228L;
 
-	
 	@Id
 	@SequenceGenerator(name = "SEQUENCIAL_MARCA", sequenceName = "NUM_SEQ_MAR", allocationSize = 0)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQUENCIAL_MARCA")
@@ -46,8 +45,9 @@ public class Marca implements Serializable {
 	@Column(name = "NAC_MAR")
 	private String nacionalidade;
 	
-	
-	//onetomany significa que uma Marca vai ter muitos veiculos
+	/**
+	 * onetomany significa que uma Marca vai ter muitos veiculos
+	 */
 	@OneToMany(mappedBy = "marca")
 	private List<Cadastro> cadastro;
 	
@@ -55,7 +55,6 @@ public class Marca implements Serializable {
 	public Marca() {
 		
 	}
-	
 	
 	public Long getId() {
 		return id;
@@ -89,7 +88,6 @@ public class Marca implements Serializable {
 		this.nacionalidade = nacionalidade;
 	}
 	
-	
 	public List<Cadastro> getCadastro() {
 		return cadastro;
 	}
@@ -97,9 +95,6 @@ public class Marca implements Serializable {
 	public void setCadastro(List<Cadastro> cadastro) {
 		this.cadastro = cadastro;
 	}
-	
-	
-	
 	
 	@Override
 	public int hashCode() {
