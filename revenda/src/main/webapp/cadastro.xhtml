@@ -47,11 +47,9 @@
 					<p:message for="id_anoFabricacao"/>	
 					
 					<p:outputLabel for="id_combustivel" value="Tipo Combustível: "/>
-					<p:selectOneMenu id="id_combustivel" value="#{cadastroBean.cadastro.combustivel}">
+					<p:selectOneMenu id="id_combustivel" value="#{cadastroBean.cadastro.combustivel}" converter="omnifaces.SelectItemsIndexConverter">
 						<f:selectItem itemLabel="---Selecione---" noSelectionOption="true"/>
-						<f:selectItem itemLabel="Gasolina" itemValue="Gasolina"/>
-						<f:selectItem itemLabel="Alcool" itemValue="Alcool"/>
-						<f:selectItem itemLabel="Diesel" itemValue="Diesel"/>
+						<f:selectItems value="#{combustivelBean.combustiveis}" var="c" itemLabel="#{c.tipoCombustivel}" itemValue="#{c}"/>
 					</p:selectOneMenu>
 					<br></br>
 					

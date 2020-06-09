@@ -5,6 +5,7 @@
 	<persistence-unit name="unidade-exemplo" transaction-type="RESOURCE_LOCAL">
 		<class>br.com.regisnumata.entidade.Marca</class>
 		<class>br.com.regisnumata.entidade.Cadastro</class>
+		<class>br.com.regisnumata.entidade.Combustivel</class>
 		<properties>
 			<!-- database connection -->
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
@@ -14,7 +15,7 @@
 			<!-- DB Dialect -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<!-- create / create-drop / update -->
- <!--  		<property name="hibernate.hbm2ddl.auto" value="create" />		-->			 			
+<!--     	<property name="hibernate.hbm2ddl.auto" value="create" />				--> 			
 			<!-- Show SQL in console -->
 			<property name="hibernate.show_sql" value="true" />
 			<!-- Show SQL formatted -->

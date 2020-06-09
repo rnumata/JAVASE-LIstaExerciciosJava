@@ -47,9 +47,13 @@ public class Cadastro implements Serializable {
 	
 	private Date anofabricacao;
 	
-	@NotEmpty
-	private String combustivel;
 	
+	// significa que muitos veiculos terao um tipo de combustivel
+	@ManyToOne
+	@NotNull
+	private Combustivel combustivel;
+	
+
 	@NotNull
 	private Double fipe;
 	
@@ -127,16 +131,16 @@ public class Cadastro implements Serializable {
 	}
 
 
-	public String getCombustivel() {
+	public Combustivel getCombustivel() {
 		return combustivel;
 	}
 
-
-	public void setCombustivel(String combustivel) {
+	
+	public void setCombustivel(Combustivel combustivel) {
 		this.combustivel = combustivel;
 	}
 
-
+	
 	public Double getFipe() {
 		return fipe;
 	}

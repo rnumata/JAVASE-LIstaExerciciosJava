@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+	<h:head>
+		<title>Revenda</title>
+	</h:head>
+	<h:body>
+		<p:growl globalOnly="true">
+				<p:autoUpdate/>
+		</p:growl>
+		<h:form>
+			<p:panel header="Cadastre o tipo de Combustivel" style="width: 500px; margin: 0 auto">
+				<h:panelGrid columns="3">
+					<p:outputLabel for="id_comb" value="Combustivel: "/>
+					<p:inputText id="id_comb" value="#{combustivelBean.combustivel.tipoCombustivel}"/>
+					<p:message for="id_comb"/>
+				</h:panelGrid>
+				
+				<f:facet name="footer">
+					<p:commandButton value="Cadastrar" action="#{combustivelBean.cadastrar()}" update="@form tabela_comb"/>
+				</f:facet>
+			</p:panel>
+			<br></br>
+			
+			<p:dataTable id="tabela_comb" var="combustivel" value="#{combustivelBean.combustiveis}" emptyMessage="Sem Cadastro">
+				<p:column headerText="id">
+					<h:outputText value="#{combustivel.id}" />
+				</p:column>
+				
+				<p:column headerText="Combustivel">
+					<h:outputText value="#{combustivel.tipoCombustivel}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+		
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        	<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+        	<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+    	</p:confirmDialog>
+		
+	</h:body>
+</html>
