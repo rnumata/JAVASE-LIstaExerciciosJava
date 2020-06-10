@@ -37,25 +37,23 @@ public class CombustivelBean implements Serializable {
 		this.combustivel = new Combustivel();
 		this.listar();
 	}
+	
+	private void listar() {
+		this.combustiveis = this.servicoCombustivel.listar();
+	}
 
 	public void cadastrar() {
 		
 		try {
 			this.servicoCombustivel.cadastrar(combustivel);
 			this.combustivel = new Combustivel();
+			listar();
 			Messages.addGlobalInfo("Cadastro OK!!");
 		} catch (Exception e) {
 			Messages.addGlobalError(e.getMessage());
 		}
 		
 	}
-	
-	private void listar() {
-		this.combustiveis = this.servicoCombustivel.listar();
-	}
-	
-	
-	
 	
 	
 	public Combustivel getCombustivel() {

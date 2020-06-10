@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/template/xhtml/template.xhtml">
+
+		<ui:define name="tituloPrincipal">Cadastro de Combustível</ui:define>
+		
+		<ui:define name="tituloSecundario">Tela para cadastrar combustível</ui:define>
+		
+		<ui:define name="botoesAcao">
+			<p:commandButton value="Cadastrar" action="#{combustivelBean.cadastrar()}" update="@form"/>
+		</ui:define>	
+	
+		<ui:define name="conteudo">
+		
+			<h:panelGrid columns="3" style="margin-bottom: 20px">
+					<p:outputLabel for="id_comb" value="Combustivel: "/>
+					<p:inputText id="id_comb" value="#{combustivelBean.combustivel.tipoCombustivel}"/>
+					<p:message for="id_comb"/>
+			</h:panelGrid>
+			
+			<p:dataTable id="tabela_comb" var="combustivel" value="#{combustivelBean.combustiveis}" emptyMessage="Sem Cadastro" style="width: 600px; margin:0 auto">
+				<p:column headerText="id">
+					<h:outputText value="#{combustivel.id}" />
+				</p:column>
+				
+				<p:column headerText="Combustivel">
+					<h:outputText value="#{combustivel.tipoCombustivel}" />
+				</p:column>
+			</p:dataTable>
+			
+		</ui:define>
+
+	</ui:composition>
+</html>

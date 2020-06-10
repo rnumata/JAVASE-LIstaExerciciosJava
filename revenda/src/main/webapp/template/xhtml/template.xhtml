@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+<html 	
+		xmlns="http://www.w3.org/1999/xhtml" 
+		xmlns:h="http://java.sun.com/jsf/html" 
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:ui="http://java.sun.com/jsf/facelets" 
+		xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<meta charset="utf-8" />
@@ -10,10 +14,13 @@
 	<meta name="author" content="Andre Miranda Pimenta" />
 	<meta http-equiv="pragma" content="no-cache" />
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	
 	<title><ui:insert name="tituloPagina">Altere o título da página</ui:insert></title>
+	
 	<ui:insert name="estilos">
 		<ui:include src="/template/xhtml/estilos.xhtml" />
 	</ui:insert>
+	
 	<ui:insert name="scripts">
 		<ui:include src="/template/xhtml/scripts.xhtml" />
 	</ui:insert>
@@ -27,10 +34,13 @@
 			</ui:insert>
 		</div>
 	</div>
+	
 	<div id="corpo">
+	
 		<div class="barraLateral">
 			<ui:include src="/template/xhtml/menu.xhtml" />
 		</div>
+		
 		<div class="conteudo">
 			<h:form id="form">
 				<div id="mensagens">

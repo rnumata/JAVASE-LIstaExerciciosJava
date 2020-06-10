@@ -35,16 +35,22 @@ public class CadastroBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		this.cadastro = new Cadastro();
+		this.listar();
 	}
 	
 	public void salvarCadastro() {
 		try {
 			this.servicoCadastro.salvarCadastro(cadastro);
 			this.cadastro = new Cadastro();
+			this.listar();
 			Messages.addFlashGlobalInfo("Cadastro OK!!");
 		} catch (Exception e) {
 			Messages.addGlobalError(e.getMessage());
 		}
+	}
+	
+	private void listar() {
+		this.cadastros = this.servicoCadastro.listarCadastro();
 	}
 	
 	

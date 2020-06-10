@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions">
+<html 
+		xmlns="http://www.w3.org/1999/xhtml"
+      	xmlns:ui="http://java.sun.com/jsf/facelets"
+      	xmlns:f="http://java.sun.com/jsf/core"
+      	xmlns:h="http://java.sun.com/jsf/html"
+      	xmlns:p="http://primefaces.org/ui">
 
-	<h:head>
-		<title>Revenda</title>
-	</h:head>
+	<ui:composition template="/template/xhtml/template.xhtml">
 	
-	<h:body>
-		<h:form >
-			<p:messages globalOnly="true" closable="true">
-				<p:autoUpdate/>
-			</p:messages>
+		<ui:define name="tituloPagina">Cadastro Veiculo</ui:define>
+	
+		<ui:define name="tituloPrincipal">Cadastro de Veículo</ui:define>
 		
-			<p:panel header="Cadastre seu veículo" style="width: 100%; margin: 10px auto">
-				<h:panelGrid columns="3">
+		<ui:define name="tituloSecundario">Tela para cadastrar dados do veículo</ui:define>
+		
+		<ui:define name="botoesAcao">
+			<p:commandButton value="Salvar" action="#{cadastroBean.salvarCadastro()}" update="@form"/>
+		</ui:define>
+		
+		<ui:define name="conteudo">
+				<h:panelGrid columns="3" style="margin-bottom: 20px">
+		
+					<ui:define name="mensagens"></ui:define>
 				
 					<p:outputLabel for="id_marca" value="Marca: "/>
 					<p:selectOneMenu id="id_marca" value="#{cadastroBean.cadastro.marca}" converter="omnifaces.SelectItemsIndexConverter">
@@ -57,54 +61,49 @@
 					<p:inputNumber id="id_fipe" value="#{cadastroBean.cadastro.fipe}" decimalSeparator="," decimalPlaces="2" thousandSeparator="."/>
 					<p:message for="id_fipe"/>
 					
-					<f:facet name="footer">	
-						<p:commandButton value="Salvar" action="#{cadastroBean.salvarCadastro()}" update="@form"/>
-					</f:facet>
-					
 				</h:panelGrid>
-				<br></br>
+			
 				
-				<p:dataTable id="tb_veiculos" var="v" value="#{cadastroBean.cadastros}" emptyMessage="Sem veiculos cadastrados">
+				<p:dataTable id="tb_veiculos" var="v" value="#{cadastroBean.cadastros}" emptyMessage="Sem veiculos cadastrados" >
 					<p:column headerText="Código">
 						<h:outputText value="#{v.id}" />
 					</p:column>
-					
 					<p:column headerText="Marca">
-						<h:outputText value="#{v.marca}" />
+						<h:outputText value="#{v.marca.nome}" />
 					</p:column>
-				
 					<p:column headerText="Modelo">
 						<h:outputText value="#{v.modelo}" />
 					</p:column>
-				
 					<p:column headerText="Placa">
 						<h:outputText value="#{v.placa}" />
 					</p:column>
-					
 					<p:column headerText="Cor">
 						<h:outputText value="#{v.cor}" />
 					</p:column>
-					
 					<p:column headerText="Ano Modelo">
 						<h:outputText value="#{v.anomodelo}" />
 					</p:column>
-
 					<p:column headerText="Ano Fabricação">
 						<h:outputText value="#{v.anofabricacao}" />
 					</p:column>		
-					
 					<p:column headerText="Combustível">
-						<h:outputText value="#{v.combustivel}" />
+						<h:outputText value="#{v.combustivel.tipoCombustivel}" />
 					</p:column>		
-					
 					<p:column headerText="Fipe">
 						<h:outputText value="#{v.fipe}" />
 					</p:column>
-				
 				</p:dataTable>
-				
-				
-			</p:panel>
-		</h:form>
-	</h:body>
+		
+		
+		</ui:define>
+	
+	
+	
+	
+	
+	
+	
+	
+	</ui:composition>
+	
 </html>

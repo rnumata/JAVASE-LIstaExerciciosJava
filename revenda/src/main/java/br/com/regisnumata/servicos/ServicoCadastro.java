@@ -1,6 +1,8 @@
 package br.com.regisnumata.servicos;
 
 
+import java.util.List;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -61,4 +63,17 @@ public class ServicoCadastro {
 			return null;
 		}
 	} // fim do metodo
+	
+	
+	public List<Cadastro> listarCadastro(){
+		EntityManager em = JPAUtils.getInstance();
+		Query query = em.createQuery("Select c FROM Cadastro c");
+		return query.getResultList();
+	}
+	
+	
+	
+	
+	
+	
 }// fim classe
